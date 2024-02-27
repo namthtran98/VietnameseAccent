@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vietnamese Converter</title>
-    <script src="vietnameseConverter.js"></script>
+    <title>Vietnamese Converter Test</title>
 </head>
 <body>
-    <h1>Vietnamese Converter</h1>
+    <h1>Vietnamese Converter Test</h1>
     <textarea id="inputText" placeholder="Nhập văn bản tiếng Việt có dấu..."></textarea>
     <button onclick="convert()">Chuyển đổi</button>
     <div id="output"></div>
 
     <script>
-        function convert() {
+        async function convert() {
             var inputText = document.getElementById("inputText").value;
-            var outputText = convertVietnamese(inputText);
+            
+            // Gọi API từ GitHub Pages
+            var response = await fetch('https://yourusername.github.io/repositoryname/vietnameseConverter.js');
+            var scriptText = await response.text();
+            eval(scriptText); // Thực thi mã JavaScript từ API
+            
+            var outputText = removeDiacritics(inputText);
             document.getElementById("output").innerText = "Văn bản đã được chuyển đổi: " + outputText;
         }
     </script>
