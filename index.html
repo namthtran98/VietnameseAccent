@@ -16,7 +16,7 @@
             var inputText = document.getElementById("inputText").value;
             
             // Gọi API từ GitHub Pages
-            var response = await fetch('https://namthtran98.github.io/repositoryname/vietnameseConverter.js');
+            var response = await fetch('https://namthtran98.github.io/VietnameseAccent/vietnameseConverter.js');
             var scriptText = await response.text();
             eval(scriptText); // Thực thi mã JavaScript từ API
             
